@@ -233,13 +233,11 @@ function createJobCard(job) {
     const initial = job.company ? job.company.charAt(0).toUpperCase() : 'J';
     
     card.innerHTML = `
-        <div class="job-logo" aria-hidden="true">
-            ${job.logo ? 
-                `<img src="images/${job.logo}" alt="${job.company} logo" onerror="this.style.display='none'; this.nextSibling.style.display='flex'">` : 
-                ''
-            }
-            <i class="fas fa-briefcase" style="${job.logo ? 'display: none;' : ''}"></i>
-        </div>
+       <div class="job-logo" aria-hidden="true">
+    <img src="images/${job.company.toLowerCase().replace(/ /g, '-')}.svg" 
+         alt="${job.company} logo" 
+         onerror="this.style.display='none'; this.parentElement.innerHTML = '<i class=\'fas fa-briefcase\'></i>'">
+</div>
         <div class="job-info">
             <div class="job-header">
                 <span class="company-name">${escapeHtml(job.company)}</span>
