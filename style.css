@@ -92,15 +92,20 @@ body {
    Header & Hero Section
    ======================================== */
 .header {
-    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%);
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%),
+                url('images/bg-header-desktop.svg');
     padding: var(--spacing-2xl) var(--spacing-md);
     text-align: center;
     position: relative;
 }
 
 @media (min-width: 768px) {
-    .header {
-        padding: var(--spacing-2xl) var(--spacing-xl);
+     .header {
+        background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%),
+                    url('images/bg-header-mobile.svg');
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: overlay;
     }
 }
 
