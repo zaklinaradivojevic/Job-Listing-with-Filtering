@@ -347,7 +347,20 @@ body {
 .job-info {
     flex: 1;
 }
-
+/*  MOBILNI MEDIA QUERY ZA PODIZANJE LOGOA */
+@media (max-width: 767px) {
+    .job-card {
+        padding-top: 2.5rem;
+    }
+    
+    .job-logo {
+        position: absolute;
+        top: -2.2rem;
+        left: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
 .job-header {
     display: flex;
     flex-wrap: wrap;
@@ -503,6 +516,7 @@ body {
     color: var(--color-primary);
     text-decoration: none;
 }
+
 
 /* Responsive Utilities */
 @media (max-width: 640px) {
