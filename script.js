@@ -229,14 +229,18 @@ function createJobCard(job) {
     card.className = `job-card ${job.is_featured ? 'featured' : ''}`;
     card.setAttribute('aria-label', `Job: ${job.position} at ${job.company}`);
     
-    // Get initial for logo fallback
-    const initial = job.company ? job.company.charAt(0).toUpperCase() : 'J';
+     // Kreiraj ime fajla za logo (uklanja tačke i zamenjuje razmake crticama)
+const logoFileName = job.company
+    .toLowerCase()
+    .replace(/\./g, '')      // Ukloni sve tačke (npr. "Co." -> "co")
+    .replace(/ /g, '-')      // Zameni razmake sa crticama
+    + '.svg';
     
     card.innerHTML = `
-       <div class="job-logo" aria-hidden="true">
-    <img src="images/${job.company.toLowerCase().replace(/ /g, '-')}.svg" 
+      <div class="job-logo" aria-hidden="true">
+    <img src="images/${logoFileName}" 
          alt="${job.company} logo" 
-         onerror="this.style.display='none'; this.parentElement.innerHTML = '<i class=\'fas fa-briefcase\'></i>'">
+         onerror="this.style.display='none'; this.parentElement.innerHTML = '<i class=\\'fas fa-briefcase\\'></i>'">
 </div>
         <div class="job-info">
             <div class="job-header">
